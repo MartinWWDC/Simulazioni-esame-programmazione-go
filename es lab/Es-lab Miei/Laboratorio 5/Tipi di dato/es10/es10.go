@@ -1,17 +1,3 @@
-/*
-Scrivere un programma che legga da standard input un valore intero e due valori reali:
-
-il primo valore è il seme (seed) s da utilizzare per inizializzare il generatore di numeri casuali;
-il secondo ed il terzo valore sono il coefficiente angolare m e il termine noto q di una retta r: y = m*x + q sul piano cartesiano.
-Una volta terminata la fase di lettura, il programma deve generare per 10 volte una coppia di valori reali px e py che rappresentano rispettivamente l'ascissa e l'ordinata di un punto sul piano cartesiano e, per ciascun punto:
-
-determinare se, a meno di una costante EPSILON = 1.0e-9, il punto sta sopra, sotto, o appartiene alla retta r;
-stampare a video il relativo messaggio (come mostrato nell'Esempio di esecuzione).
-I valori px e py devono essere compresi nell'intervallo [0, 10.0).
-
-
-*/
-
 package main
 
 import (
@@ -50,31 +36,27 @@ func ÈXMinoreDiY(x, y float64) bool {
 }
 
 func main() {
-
-	var seed int64
-
-	var m, q float64
-
-	fmt.Println("S:")
-	fmt.Scanln(&seed)
+	var s, m, q int64
+	var x, y float64
+	fmt.Print("Inserisci s: ")
+	fmt.Scan(&s)
 	fmt.Print("Inserisci m e q: ")
 	fmt.Scan(&m, &q)
-
-	rand.Seed(seed)
-
+	fmt.Println(s, m, q)
+	rand.Seed(s)
 	for i := 0; i < 10; i++ {
-		x := rand.Float64() * 5.0
-		y := rand.Float64() * 5.0
-
-		fmt.Print("Punto (", x, ",", y, ") - ")
-		if ÈXMaggioreDiY(y, m*x+q) {
+		x = rand.Float64() * 5
+		y = rand.Float64() * 5
+		fmt.Print("Punto (", x, ",", y, ") -")
+		if ÈXMaggioreDiY(y, x) {
 			fmt.Println("Il punto sta sopra la retta")
-
-		} else if ÈXMinoreDiY(y, m*x+q) {
+		} else if ÈXMinoreDiY(y, x) {
 			fmt.Println("Il punto sta sotto la retta")
 		} else {
 			fmt.Println("Il punto appartiene alla retta")
+
 		}
 	}
 
+	fmt.Println(x, y)
 }
