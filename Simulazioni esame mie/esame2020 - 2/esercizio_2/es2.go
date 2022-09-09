@@ -58,7 +58,7 @@ func romano2decimale(n string) int {
 			}
 		case i < len(iarr)-1 && iarr[i] == 100 && (iarr[i+1] == 500 || iarr[i+1] == 1000):
 			result += iarr[i+1] - 100
-			if i < len(iarr)-1 {
+			if i <3 len(iarr)-1 {
 				i++
 
 			}
@@ -74,76 +74,66 @@ func romano2decimale(n string) int {
 }
 
 func numeroRomanoBenFormattato(s string) bool {
+	var prev byte
+	rip := 0
 	check := true
-	var iarr []int
-	arr := strings.Split(s, "")
-	for g := range arr {
-		switch {
-		case arr[g] == "I":
-			iarr = append(iarr, 1)
-		case arr[g] == "V":
-			iarr = append(iarr, 5)
-		case arr[g] == "X":
-			iarr = append(iarr, 10)
-		case arr[g] == "L":
-			iarr = append(iarr, 50)
-		case arr[g] == "C":
-			iarr = append(iarr, 100)
-		case arr[g] == "D":
-			iarr = append(iarr, 500)
-		case arr[g] == "M":
-			iarr = append(iarr, 1000)
-
-		}
-	}
-	//var check
-	//for i := len(iarr) - 1; i > 0; i-- {
-	//
-	//	default:
-	//		result += iarr[i]
-	//
-	//	}
-	//}
-
-	for i := 0; i < len(iarr)-1; i++ {
-		switch {
-		case i < len(iarr)-3 && iarr[i] == iarr[i+1] && iarr[i+1] == iarr[i+2] && iarr[i+2] == iarr[i+3]:
-			return false
-		case i < len(iarr)-2 && iarr[i] == 1 && iarr[i+1] == 1 && (iarr[i+2] == 5 || iarr[i+2] == 10): // IIV o IIX
-			return false
-		case i < len(iarr)-2 && iarr[i] == 10 && iarr[i+1] == 10 && (iarr[i+2] == 50 || iarr[i+2] == 100): // XXL o XXC
-			return false
-		case i < len(iarr)-2 && iarr[i] == 100 && iarr[i+1] == 100 && (iarr[i+2] == 500 || iarr[i+2] == 1000): // CCD o CCM
-			return false
-		case i < len(iarr)-1 && iarr[i] == 1 && (iarr[i+1] == 5 || iarr[i+1] == 10):
-
-		case i < len(iarr)-1 && iarr[i] == 10 && (iarr[i+1] == 50 || iarr[i+1] == 100):
-
-		case i < len(iarr)-1 && iarr[i] == 100 && (iarr[i+1] == 500 || iarr[i+1] == 1000):
-
-		case iarr[i] < iarr[i+1]:
-			return false
-		default:
-
-		}
+	for g := len(s)-1 ; g >= 0; g-- {
+		
+		if prev == s[g] { //regola: Non posso avere più di 3 simboli uguali
+			rip++
+			if rip > 3 {
+				return false
+			}
+		} 
+		
 	}
 	return check
 	/*
-
-		for i := 0; i < len(iarr); i++ {
-
+	//TINO >>>>
+		for g := range arr {
 			switch {
-			case i < len(iarr)-1 && iarr[i] == 1 && (iarr[i+1] == 5 || iarr[i+1] == 10):
-				check = true
-			case i < len(iarr)-1 && iarr[i] == 10 && (iarr[i+1] == 50 || iarr[i+1] == 100):
-				check = true
-			case i < len(iarr)-1 && iarr[i] == 100 && (iarr[i+1] == 500 || iarr[i+1] == 1000):
-				check = true
-			case i > 0 && (iarr[i] == 5 || iarr[i] == 50 || iarr[i] == 500) && iarr[i-1] < iarr[i]:
-				check = true
-			default:
+			case arr[g] == "I":
+				iarr = append(iarr, 1)
+			case arr[g] == "V":
+				iarr = append(iarr, 5)
+			case arr[g] == "X":
+				iarr = append(iarr, 10)
+			case arr[g] == "L":
+				iarr = append(iarr, 50)
+			case arr[g] == "C":
+				iarr = append(iarr, 100)
+			case arr[g] == "D":
+				iarr = append(iarr, 500)
+			case arr[g] == "M":
+				iarr = append(iarr, 1000)
 
 			}
+		}
 
-		}*/
+
+
+			check := true
+			for i := 0; i < len(iarr)-1; i++ {
+				switch {
+				case i < len(iarr)-3 && iarr[i] == iarr[i+1] && iarr[i+1] == iarr[i+2] && iarr[i+2] == iarr[i+3]: // controllo che un elemento non sia ripetuto per + di 3 volte
+					return false
+				case i < len(iarr)-2 && iarr[i] == 1 && iarr[i+1] == 1 && (iarr[i+2] == 5 || iarr[i+2] == 10): // IIV o IIX controllo che non ci siamo 2 volte 1  prima di 5 e 10
+					return false
+				case i < len(iarr)-2 && iarr[i] == 10 && iarr[i+1] == 10 && (iarr[i+2] == 50 || iarr[i+2] == 100): // XXL o XXC controllo che non ci siamo 2 volte 10  prima di 50 e 100
+					return false
+				case i < len(iarr)-2 && iarr[i] == 100 && iarr[i+1] == 100 && (iarr[i+2] == 500 || iarr[i+2] == 1000): // CCD o CCM controllo che non ci siamo 2 volte 100  prima di 500 e 1000
+					return false
+				case i < len(iarr)-1 && iarr[i] == 1 && (iarr[i+1] == 5 || iarr[i+1] == 10):
+
+				case i < len(iarr)-1 && iarr[i] == 10 && (iarr[i+1] == 50 || iarr[i+1] == 100):
+
+				case i < len(iarr)-1 && iarr[i] == 100 && (iarr[i+1] == 500 || iarr[i+1] == 1000):
+
+				case iarr[i] < iarr[i+1]:
+					return false
+				default:
+
+				}
+			}
+			return check*/
 }
