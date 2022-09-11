@@ -77,19 +77,7 @@ func numeroRomanoBenFormattato(s string) bool {
 	var prev byte
 	rip := 0
 	check := true
-	for g := len(s)-1 ; g >= 0; g-- {
-		
-		if prev == s[g] { //regola: Non posso avere più di 3 simboli uguali
-			rip++
-			if rip > 3 {
-				return false
-			}
-		} 
-		
-	}
-	return check
-	/*
-	//TINO >>>>
+	
 		for g := range arr {
 			switch {
 			case arr[g] == "I":
@@ -135,5 +123,5 @@ func numeroRomanoBenFormattato(s string) bool {
 
 				}
 			}
-			return check*/
+			return check
 }
