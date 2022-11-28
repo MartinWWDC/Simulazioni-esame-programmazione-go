@@ -1,11 +1,28 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
+
+type Persona struct {
+	Nome, Cognome string
+}
 
 func main() {
 
-	s := "ciao, come va?"
-	/* s è interamente definita da caratteri considerati nello standard US-ASCII */
+	p := &Persona{"Rick", "Sanchez"}
 
-	fmt.Println(string(s[0]) + string(s[len(s)-2]) + string(s[len(s)-1]))
+	f(*p)
+	fmt.Println(*p)
+	g(p)
+	fmt.Println(*p)
+}
+
+func f(p Persona) {
+	p.Nome, p.Cognome = strings.ToUpper(p.Nome), strings.ToUpper(p.Cognome)
+}
+
+func g(p *Persona) {
+	p.Nome, p.Cognome = strings.ToUpper(p.Nome), strings.ToUpper(p.Cognome)
 }
