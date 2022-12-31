@@ -1,0 +1,11 @@
+Milano;02
+Brescia;030
+Como;031
+Varese;0332
+Lecco;0341
+Sondrio;0342
+Bergamo;035
+Lodi;0371
+Cremona;0372
+Mantova;0376
+Pavia;0382

@@ -1,0 +1,20 @@
+San Francisco;37.7562;-122.443
+Sacramento;38.5667;-121.4683
+Kansas City;39.1239;-94.5541
+Saint Louis;38.6358;-90.2451
+Louisville;38.1662;-85.6488
+Washington;38.9047;-77.0163
+Lisbon;38.7227;-9.1449
+Athens;37.9833;23.7333
+İzmir;38.4361;27.1518
+Tabriz;38.0863;46.3012
+Dushanbe;38.56;68.7739
+Shijianzhuang;38.05;114.48
+Baoding;38.8704;115.48
+Tianjin;39.13;117.2
+Dalian;38.9228;121.6298
+Nampo;38.7669;125.4524
+Pyongyang;39.0194;125.7547
+Incheon;37.4761;126.6422
+Seoul;37.5663;126.9997
+Sendai;38.2871;141.0217
