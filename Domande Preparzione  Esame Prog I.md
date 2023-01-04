@@ -98,14 +98,36 @@ package main
 import "fmt"
 
 func main() {
-	a := []int{0, 0, 0, 6}
-	for i := range a {
-		a[i] = i
+    a := []int{0, 0, 0, 6}
+    for i := range a {
+        a[i] = i
+    }
+    for _, v := range a {
+        v *= 2
+    }
+    fmt.Println(a)
+}
+```
+
+**generare le sottostringhe rimuovendo n cifre da un stringa**
+
+```go
+package main
+
+import (
+	"fmt"
+	"strconv"
+)
+
+func main() {
+	var N, k int
+	fmt.Scan(&N, &k)
+	str := strconv.Itoa(N)
+	for h := range str[:len(str)-k+1] {
+		g := str[:h] + str[h+k:]
+		fmt.Println(g)
+
 	}
-	for _, v := range a {
-		v *= 2
-	}
-	fmt.Println(a)
 }
 
 ```

@@ -1,0 +1,10 @@
+VAR base 2
+VAR esponente 4
+VAR potenza 1
+VAR decremento 1
+VAR true 0
+JMP esponente 10
+MUL potenza base
+SUB esponente decremento
+JMP true 6
+PRT potenza
