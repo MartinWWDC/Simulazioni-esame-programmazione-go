@@ -115,19 +115,42 @@ func main() {
 package main
 
 import (
-	"fmt"
-	"strconv"
+    "fmt"
+    "strconv"
 )
 
 func main() {
-	var N, k int
-	fmt.Scan(&N, &k)
-	str := strconv.Itoa(N)
-	for h := range str[:len(str)-k+1] {
-		g := str[:h] + str[h+k:]
-		fmt.Println(g)
+    var N, k int
+    fmt.Scan(&N, &k)
+    str := strconv.Itoa(N)
+    for h := range str[:len(str)-k+1] {
+        g := str[:h] + str[h+k:]
+        fmt.Println(g)
 
-	}
+    }
 }
+```
 
+**sort string by lenght**
+
+```go
+package main
+
+import (
+    "fmt"
+    "sort"
+)
+
+func main() {
+    animals := []string{"snail", "dog", "cow", "elephant", "chicken", "mouse"}
+    fmt.Println(animals)
+
+    sort.Strings(animals)
+    fmt.Println(animals)
+
+    sort.Slice(animals, func(i, j int) bool {
+        return len(animals[i]) < len(animals[j])
+    })
+    fmt.Println(animals)
+}
 ```
