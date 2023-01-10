@@ -1,0 +1,9 @@
+Bianchi;Maria;Cremona;26010;Via Cavour;18;037211581249
+Bianchi;Silvia;Lecco;23801;Via Matteotti;39;034111031796
+Bianchi;Lorenzo;Pavia;27010;Via Mazzini;27;038415931720
+Bianchi;Roberta;Como;22010;Via Garibaldi;22;03110431466
+Verdi;Maria;Lecco;23801;Via Garibaldi;36;034112051762
+Rossi;Silvia;Mantova;46010;Via Dante Alighieri;24;038613131232
+Rossi;Mario;Varese;21010;Via Dante Alighieri;16;033211551851
+Verdi;Mario;Lodi;26811;Via Dante Alighieri;23;037718161690
+Rossi;Silvia;Bergamo;24121;Via Dante Alighieri;32;034614501189
