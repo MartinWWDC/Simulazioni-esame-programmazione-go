@@ -158,3 +158,118 @@ func main() {
     fmt.Println(animals)
 }
 ```
+
+**Cos'è una mappa?**
+
+una mappa è una struttura dati che associa ad una chiave un Tipo di dato il quale può variare dall'essere un semplice intero a un  altra mappa
+
+**Cos'è uno switch?**
+
+**Rappresenta un struttura che rappresenta un float e un intero. attaccaci un metodo che incrementa il valore dell'intero**
+
+```go
+package main
+
+import "fmt"
+
+/**
+ * "rappresenta un struttura che rappresenta un float e un intero. attaccaci un metodo che incrementa il valore dell'intero "
+ */
+type tipo struct {
+    n int
+    f float64
+}
+
+func (re *tipo) IncreaseInt() {
+    re.n++
+}
+
+func main() {
+    t := tipo{0, 0.0}
+    fmt.Println(t)
+    t.IncreaseInt()
+    fmt.Println(t)
+}
+```
+
+**Panoramica vettori e dati**
+
+**disegna una struttura contente un intero un float e una stringa**
+
+```go
+type Tipo struct {
+    i int
+    f float64
+    s string
+}
+
+func (t *Tipo) RaddoppioF() {
+    t.f *= 2
+}
+```
+
+# Coding Q
+
+* prendo una slice di interi e stampi la lunghezza massima sottosequenza di numeri interi positivi
+  
+  ```go
+  package main
+  
+  import "fmt"
+  
+  /**
+  prendo una slice di interi e stampi la lunghezza massima sottosequenza di numeri interi positivi
+  */
+  func main() {
+      arr := []int{0, 1, 2, 3, -4, 4, 3, 2, 8, 9, 19}
+      fmt.Println(getMaxLenVProf(arr))
+  }
+  
+  func getMaxLenVProf(s []int) int {
+  	max := 0
+  	g := 0
+  
+  	for i := range s {
+  		if !(s[i] >= 0) {
+  			if max < i-g {
+  				max = i - g
+  			}
+  
+  			g = i
+  
+  		}
+  
+  	}
+  
+  	//fmt.Println(nLen)
+  	return max
+  }
+  ```
+
+*  rappresenta un struttura che rappresenta un float e un intero. attaccaci un metodo che incrementa il valore dell'intero
+  
+  ```go
+  package main
+  
+  import "fmt"
+  
+  /**
+   * Scrivere una funzione che prende una slice di float e restituisce un intero e deve calcolarte quanti positivi sono seguiti da un negativo
+   */
+  
+  func main() {
+      arr := []float64{1.0, 2, 3, -4}
+      positiviPostNeg(arr)
+  }
+  
+  func positiviPostNeg(n []float64) int {
+      g := 0
+      for i := 0; i < len(n)-1; i++ {
+          if n[i] > 0 && n[i+1] < 0 {
+              fmt.Println(n[i])
+              g++
+          }
+      }
+      return g
+  }
+  ```
